@@ -7,10 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% Category.all.each do |category| %>
-  <%= link_to category.name, jobs_path(cid: category.id) %>
-<% end %>
-<%= yield %>
+  <div class="nav navbar navbar-default">
+    <div class="container">
+      <div class="navbar-brand">Rail jobs</div>
+      <ul class="nav navbar-nav">
+        <li><%= link_to "All Jobs", root_path %></li>
+        <% Category.all.each do |category| %>
+          <li><%= link_to category.name, jobs_path(cid: category.id) %></li>
+        <% end %>
+      </ul>
+      <%= link_to "New Job", new_job_path, class: "navbar-text navbar-right navbar-link" %>
+    </div>
+  </div>
+  <div class="container">
+    <div class="col-md-6 col-md-offset-3">
+      <%= yield %>
+    </div>
+  </div>
+
 
 </body>
 </html>

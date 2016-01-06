@@ -1,6 +1,13 @@
-<h1><%= @job.title  %></h1>
-<p><%= @job.description %></p>
-<p><%=@job.company  %></p>
-<%= link_to "Home", root_path %>
-<%= link_to "Edit", edit_job_path(@job) %>
-<%= link_to "Delete", job_path(@job), method: :delete %>
+<div id="jobs">
+  <div class="job">
+    <h2><%= @job.title  %></h2>
+    <p><%= @job.description %></p>
+    <p><%=@job.company  %></p>
+    <button class="btn btn-default"><%= link_to "Apply for Job", @job.url %></button>
+  </div>
+</div>
+<div id="links">
+  <%= link_to "Home", root_path, class: "btn btn-sm btn-default" %>
+  <%= link_to "Edit", edit_job_path(@job), class: "btn btn-sm btn-default"  %>
+  <%= link_to "Delete", job_path(@job), method: :delete, class: "btn btn-sm btn-default"  %>
+</div>
