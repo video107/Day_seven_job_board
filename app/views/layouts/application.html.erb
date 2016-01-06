@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>JobBoard</title>
+  <title>ROR jobs</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<% Category.all.each do |category| %>
+  <%= link_to category.name, jobs_path(cid: category.id) %>
+<% end %>
 <%= yield %>
 
 </body>
